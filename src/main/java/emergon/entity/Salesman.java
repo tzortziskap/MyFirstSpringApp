@@ -9,8 +9,10 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -60,7 +62,7 @@ public class Salesman implements Serializable {
     @Min(value=0)
     @Column(name = "scomm")
     private BigDecimal scomm;
-    @OneToMany(mappedBy = "salesman")
+    @OneToMany(mappedBy = "salesman", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Family> familyList;
     @OneToMany(mappedBy = "smcode")
     private List<Sales> salesList;

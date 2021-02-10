@@ -30,6 +30,7 @@
                         <th>Commission</th>
                         <th>Update</th>
                         <th>Delete</th>
+                        <th>View Family</th>
                     </tr>
                 </thead>
                 <c:forEach items="${listOfSalesmen}" var = "salesman">
@@ -43,6 +44,9 @@
                         </td>
                         <td>
                             <a href="${pageContext.request.contextPath}/salesman/delete?id=${salesman.scode}">Delete</a>
+                        </td>
+                        <td>
+                            <a href="${pageContext.request.contextPath}/salesman/viewFamilyperSalesman/${salesman.scode}">View Family</a>
                         </td>
                     </tr>
                 </c:forEach>

@@ -32,11 +32,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "family")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Family.findAll", query = "SELECT f FROM Family f")
-    , @NamedQuery(name = "Family.findByFid", query = "SELECT f FROM Family f WHERE f.fid = :fid")
-    , @NamedQuery(name = "Family.findByFname", query = "SELECT f FROM Family f WHERE f.fname = :fname")
-    , @NamedQuery(name = "Family.findByFrelationship", query = "SELECT f FROM Family f WHERE f.frelationship = :frelationship")
-    , @NamedQuery(name = "Family.findByDob", query = "SELECT f FROM Family f WHERE f.dob = :dob")})
+    @NamedQuery(name = "Family.findAll", query = "SELECT f FROM Family f"),
+    @NamedQuery(name = "Family.findByFid", query = "SELECT f FROM Family f WHERE f.fid = :fid"),
+    @NamedQuery(name = "Family.findByFname", query = "SELECT f FROM Family f WHERE f.fname = :fname"),
+    @NamedQuery(name = "Family.findByFrelationship", query = "SELECT f FROM Family f WHERE f.frelationship = :frelationship"),
+    @NamedQuery(name = "Family.findByDob", query = "SELECT f FROM Family f WHERE f.dob = :dob"),
+    @NamedQuery(name = "Family.findByFamilyList", query = "SELECT f FROM Family f WHERE f.salesman=?1")})
 public class Family implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -136,5 +137,5 @@ public class Family implements Serializable {
     public String toString() {
         return "emergon.entity.Family[ fid=" + fid + " ]";
     }
-    
+
 }

@@ -1,5 +1,6 @@
 package emergon.repository;
 
+import emergon.entity.Family;
 import emergon.entity.Salesman;
 import emergon.entity.Salesman;
 import java.util.List;
@@ -30,4 +31,9 @@ public class SalesmanRepo extends HibernateUtil<Salesman> implements CrudRepo<Sa
         return super.findAll("Salesman.findAll");
     }
     
+    public List<Family> findBySalesman(int id){
+        Salesman s = super.find(Salesman.class, id);
+        List<Family> family = s.getFamilyList();
+        return family;
+    }
 }

@@ -22,7 +22,7 @@ public class DatabaseConfig {
         datasource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         datasource.setUrl("jdbc:mysql://localhost:3306/sales?serverTimezone=Europe/Athens");
         datasource.setUsername("root");
-        datasource.setPassword("root");
+        datasource.setPassword("Aa284600");
         return datasource;
     }
     

@@ -1,5 +1,6 @@
 package emergon.controller;
 
+import emergon.entity.Family;
 import emergon.entity.Salesman;
 import emergon.service.SalesmanService;
 import java.util.List;
@@ -100,6 +101,15 @@ public class SalesmanController {
         String minima = "Could not commit transaction!!";
         attributes.addFlashAttribute("message", minima);
         return "redirect:/salesman";
+    }
+    @RequestMapping("/viewFamilyperSalesman/{scode}")
+    public ModelAndView showSalesmen(@PathVariable("scode") int scode, ModelAndView modelAndView) {
+        List<Family> f = service.getFamilyBySalesman(scode);
+        modelAndView.addObject("listOfFamily", f);
+        //return the path where the jsp page exists. 
+        //  WEB-INF/views/salesman/salesmanList.jsp
+        modelAndView.setViewName("salesman/familyPerSalesman");
+        return modelAndView;
     }
 
 }

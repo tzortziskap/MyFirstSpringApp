@@ -1,5 +1,6 @@
 package emergon.service;
 
+import emergon.entity.Family;
 import emergon.entity.Salesman;
 import emergon.repository.SalesmanRepo;
 import java.util.ArrayList;
@@ -30,6 +31,10 @@ public class SalesmanService {
 
     public Salesman getSalesmanById(int id) {
         return salesmanRepo.findById(id);
+    }
+    
+    public List<Family> getFamilyBySalesman(int id){
+        return salesmanRepo.findBySalesman(id);
     }
     
     public List<String> getCities(){
